@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light" data-mode="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HTML / CSS / JavaScript 速查表 · 标签查询与实时演示</title>
+<meta name="description" content="HTML 标签、CSS 属性与 JavaScript 速查表，支持即时搜索、分类筛选、弃用标记、属性参数表格与 HTML/CSS/JS 实时代码演示，可自定义补充标签。">
+<link rel="stylesheet" href="assets/css/main.css?v=14">
+</head>
+<body>
+
+<a class="skip-link" href="#main">跳到主内容</a>
+
+<!-- 主题特效层：由 app.js 按主题填充，纯装饰，不拦截鼠标 -->
+<div class="fx-layer" id="fxLayer" aria-hidden="true"></div>
+
+<header class="topbar">
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+  <div class="topbar-inner">
+    <button class="icon-btn menu-btn" id="menuBtn" aria-label="收起 / 展开侧边导航" aria-expanded="true" title="收起 / 展开侧边导航（[ 快捷键）">
+      <span class="mb-bars"><i></i><i></i><i></i></span>
+    </button>
+
+    <a class="brand" href="#/tags" title="回到首页">
+      <span class="brand-mark">&lt;/&gt;</span>
+      <span class="brand-text">HTML · CSS <b>速查表</b></span>
+    </a>
+
+    <div class="search-wrap">
+      <span class="search-icon" aria-hidden="true">🔍</span>
+      <input type="search" id="globalSearch" placeholder="搜索标签 / 属性 / 关键词…  按 / 聚焦" autocomplete="off" spellcheck="false">
+      <kbd class="search-kbd">/</kbd>
+      <button class="clear-btn" id="clearSearch" title="清空搜索" hidden>×</button>
+      <div class="search-panel" id="searchPanel" hidden></div>
+    </div>
+
+    <div class="topbar-actions">
+      <button class="icon-btn" id="headBtn" title="隐藏顶栏，进入沉浸阅读（H）" aria-label="隐藏顶栏" aria-pressed="false">
+        <svg class="ico-svg" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true">
+          <path d="M2.2 3.1h11.6"></path>
+          <path d="M8 13.2V6.4"></path>
+          <path d="M5.3 8.9 8 6.2l2.7 2.7"></path>
+        </svg>
+      </button>
+      <div class="theme-wrap">
+        <button class="icon-btn" id="themeBtn" title="切换主题（16 套配色 · 均带特效）" aria-label="切换主题" aria-haspopup="true" aria-expanded="false">🎨</button>
+        <div class="theme-menu" id="themeMenu" role="menu" aria-label="主题选择" hidden></div>
+      </div>
+      <button class="icon-btn" id="printBtn" title="打印当前页面" aria-label="打印">🖨️</button>
+    </div>
+  </div>
+</header>
+
+<!-- 沉浸模式（隐藏顶栏）时出现的「显示顶栏」浮标 -->
+<button class="head-restore" id="headRestore" hidden title="显示顶栏（H / Esc）">
+  <span class="hr-ico" aria-hidden="true">⌄</span>
+  <span>显示顶栏</span>
+  <kbd>H</kbd>
+</button>
+
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <nav class="nav" id="nav" aria-label="主导航"></nav>
+    <div class="sidebar-foot">
+      <button class="ghost-btn" id="addTagBtn">＋ 添加自定义内容</button>
+      <button class="ghost-btn" id="dataBtn">⇅ 数据导入 / 导出</button>
+    </div>
+  </aside>
+  <div class="scrim" id="scrim" hidden></div>
+
+  <main class="main" id="main" tabindex="-1">
+    <div id="view"></div>
+    <footer class="site-foot">
+      <span class="foot-sign">2026年 · 26大数据2 · 丘顺辉</span>
+      <span class="foot-sep">·</span>
+      <span>纯静态站点 · 无需联网 · 自定义数据保存在浏览器 localStorage</span>
+      <span class="foot-sep">·</span>
+      <a href="#/manage">数据管理</a>
+    </footer>
+  </main>
+</div>
+
+<!-- 自定义标签编辑弹窗 -->
+<div class="modal" id="modal" hidden>
+  <div class="modal-scrim" data-close></div>
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-head">
+      <h2 id="modalTitle">添加自定义标签</h2>
+      <button class="icon-btn" data-close aria-label="关闭">×</button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+    <div class="modal-foot" id="modalFoot"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast" hidden></div>
+
+<button class="to-top" id="toTop" title="回到顶部" aria-label="回到顶部" hidden>
+  <span aria-hidden="true">↑</span>
+</button>
+
+<script src="assets/js/data-tags.js?v=14"></script>
+<script src="assets/js/data-css.js?v=14"></script>
+<script src="assets/js/data-js.js?v=14"></script>
+<script src="assets/js/store.js?v=14"></script>
+<script src="assets/js/highlight.js?v=14"></script>
+<script src="assets/js/app.js?v=14"></script>
+</body>
+</html>
